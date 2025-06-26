@@ -4,13 +4,7 @@
   "envMode": "loose",
   "daemon": true,
   "cacheDir": ".turbo/cache",
-  "globalEnv": [
-    "NODE_ENV",
-    "CI",
-    "VERCEL",
-    "NETLIFY",
-    "GITHUB_ACTIONS"
-  ],
+  "globalEnv": ["NODE_ENV", "CI", "VERCEL", "NETLIFY", "GITHUB_ACTIONS"],
   "globalDependencies": [
     "package.json",
     "pnpm-workspace.yaml",
@@ -133,14 +127,8 @@
       "outputLogs": "new-only"
     },
     "tokens:build": {
-      "inputs": [
-        "tokens/**",
-        "style-dictionary.config.*"
-      ],
-      "outputs": [
-        "dist/**",
-        "build/**"
-      ],
+      "inputs": ["tokens/**", "style-dictionary.config.*"],
+      "outputs": ["dist/**", "build/**"],
       "outputLogs": "new-only"
     }
   }
