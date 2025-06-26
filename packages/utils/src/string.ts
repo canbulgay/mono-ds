@@ -10,7 +10,7 @@
  * capitalizeFirstLetter('world') // Returns 'World'
  */
 export function capitalizeFirstLetter(str: string): string {
-  if (typeof str !== "string" || str.length === 0) {
+  if (typeof str !== 'string' || str.length === 0) {
     return str; // Return the original string if it's not valid
   }
 

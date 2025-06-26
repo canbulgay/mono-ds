@@ -1,7 +1,7 @@
 packages:
-  - "apps/*"
-  - "packages/*"
-  - "tools/*"
+  - 'apps/*'
+  - 'packages/*'
+  - 'tools/*'
 
 # Global pnpm settings for the workspace
 verifyDepsBeforeRun: true
@@ -14,15 +14,15 @@ prefer-workspace-packages: true
 
 # Public hoisting patterns for better performance
 publicHoistPattern:
-  - "*types*"
-  - "*eslint*"
-  - "*prettier*"
-  - "typescript"
-  - "webpack"
-  - "rollup"
-  - "vite"
+  - '*types*'
+  - '*eslint*'
+  - '*prettier*'
+  - 'typescript'
+  - 'webpack'
+  - 'rollup'
+  - 'vite'
 
 # Never hoist these packages to avoid conflicts
 neverBuiltDependencies:
-  - "fsevents"
-  - "esbuild"
+  - 'fsevents'
+  - 'esbuild'

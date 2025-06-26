@@ -11,7 +11,7 @@
  */
 export function isJsonString(str: string) {
   try {
-    if (typeof str !== "string") {
+    if (typeof str !== 'string') {
       return false;
     }
     JSON.parse(str);

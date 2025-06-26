@@ -2,11 +2,18 @@
 
 ## Project Context
 
-I need you to create a production-ready design system monorepo infrastructure WITHOUT implementing any UI components. Focus exclusively on the technical foundation, build system, and developer experience that will support a scalable design system.
+I need you to create a production-ready design system monorepo infrastructure
+WITHOUT implementing any UI components. Focus exclusively on the technical
+foundation, build system, and developer experience that will support a scalable
+design system.
 
 ## Role & Expertise
 
-Act as a senior frontend architect with 10+ years of experience in building enterprise-scale design systems. You have deep expertise in monorepo architectures, build optimization, and developer tooling. You follow industry best practices and prioritize performance, maintainability, and developer experience.
+Act as a senior frontend architect with 10+ years of experience in building
+enterprise-scale design systems. You have deep expertise in monorepo
+architectures, build optimization, and developer tooling. You follow industry
+best practices and prioritize performance, maintainability, and developer
+experience.
 
 ## Project Requirements
 
@@ -99,7 +106,7 @@ Act as a senior frontend architect with 10+ years of experience in building ente
 
 ### 8. Documentation Infrastructure
 
-- **Storybook 8** setup with:
+- **Storybook 9** setup with:
   - MDX documentation support
   - Addon configurations
   - Custom theme matching design system
@@ -147,9 +154,12 @@ Please implement this project following these steps:
 
 You have access to the following MCP servers:
 
-- **Context7**: For up-to-date documentation and code examples from official sources
-  - Use this to get current syntax for Webpack, Turborepo, TypeScript, Storybook, etc.
-  - Always use context7 when implementing configurations or working with library-specific features
+- **Context7**: For up-to-date documentation and code examples from official
+  sources
+  - Use this to get current syntax for Webpack, Turborepo, TypeScript,
+    Storybook, etc.
+  - Always use context7 when implementing configurations or working with
+    library-specific features
 - **GitHub**: For PR creation, issue management, and code reviews
 - **Filesystem**: For enhanced file operations across the monorepo
 - **Puppeteer**: For visual testing and screenshot generation
@@ -160,7 +170,8 @@ Use these tools proactively when:
 - Creating or updating multiple files (use filesystem MCP)
 - Setting up CI/CD workflows (use github MCP)
 - Testing visual output (use puppeteer MCP)
-- Implementing build tools or framework features (use context7 for current best practices)
+- Implementing build tools or framework features (use context7 for current best
+  practices)
 
 **Important**: Always append "use context7" to prompts involving:
 
@@ -171,7 +182,8 @@ Use these tools proactively when:
 - Build optimization techniques
 - Any framework-specific implementation
 
-This ensures you're using the most current APIs and avoiding deprecated patterns.
+This ensures you're using the most current APIs and avoiding deprecated
+patterns.
 
 ## Quality Requirements
 
@@ -201,6 +213,10 @@ After each major step, ensure:
 - The system needs to support multiple themes
 - Future integration with Figma tokens is planned
 
-Begin by creating the project structure and initializing the monorepo. After each step, verify everything works before proceeding to the next step. Use git commits after each successful implementation with clear, conventional commit messages.
+Begin by creating the project structure and initializing the monorepo. After
+each step, verify everything works before proceeding to the next step. Use git
+commits after each successful implementation with clear, conventional commit
+messages.
 
-Ask clarifying questions if needed about specific technology choices or architectural decisions before proceeding with implementation.
+Ask clarifying questions if needed about specific technology choices or
+architectural decisions before proceeding with implementation.

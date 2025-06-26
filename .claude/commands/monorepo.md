@@ -1,4 +1,5 @@
-Please analyze and implement the next uncompleted task from prompt_plan.md for our design system monorepo. Follow these steps:
+Please analyze and implement the next uncompleted task from prompt_plan.md for
+our design system monorepo. Follow these steps:
 
 1. Check prompt_plan.md for the next uncompleted task
 2. Implement the task according to the specifications in prompt.md

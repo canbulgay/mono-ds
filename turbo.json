@@ -5,13 +5,7 @@
   "daemon": true,
   "cacheDir": ".turbo/cache",
   "globalEnv": ["NODE_ENV", "CI", "VERCEL", "NETLIFY", "GITHUB_ACTIONS"],
-  "globalDependencies": [
-    "package.json",
-    "pnpm-workspace.yaml",
-    "turbo.json",
-    ".env",
-    ".env.local"
-  ],
+  "globalDependencies": ["package.json", "pnpm-workspace.yaml", "turbo.json", ".env", ".env.local"],
   "tasks": {
     "build": {
       "dependsOn": ["^build"],
@@ -27,15 +21,7 @@
         "!**/stories/**",
         "!**/__tests__/**"
       ],
-      "outputs": [
-        "dist/**",
-        ".next/**",
-        "!.next/cache/**",
-        "build/**",
-        "out/**",
-        "storybook-static/**",
-        "coverage/**"
-      ],
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**", "build/**", "out/**", "storybook-static/**", "coverage/**"],
       "outputLogs": "new-only"
     },
     "dev": {
@@ -72,14 +58,7 @@
     },
     "lint": {
       "dependsOn": ["^build"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "src/**",
-        "lib/**",
-        "components/**",
-        ".eslintrc.*",
-        "eslint.config.*"
-      ],
+      "inputs": ["$TURBO_DEFAULT$", "src/**", "lib/**", "components/**", ".eslintrc.*", "eslint.config.*"],
       "outputLogs": "errors-only"
     },
     "lint:fix": {
@@ -89,14 +68,7 @@
     },
     "typecheck": {
       "dependsOn": ["^build"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "src/**",
-        "lib/**",
-        "components/**",
-        "tsconfig.json",
-        "tsconfig.*.json"
-      ],
+      "inputs": ["$TURBO_DEFAULT$", "src/**", "lib/**", "components/**", "tsconfig.json", "tsconfig.*.json"],
       "outputLogs": "errors-only"
     },
     "format": {
@@ -115,14 +87,7 @@
     },
     "storybook:build": {
       "dependsOn": ["^build"],
-      "inputs": [
-        "$TURBO_DEFAULT$",
-        "src/**",
-        "lib/**",
-        "components/**",
-        "stories/**",
-        ".storybook/**"
-      ],
+      "inputs": ["$TURBO_DEFAULT$", "src/**", "lib/**", "components/**", "stories/**", ".storybook/**"],
       "outputs": ["storybook-static/**"],
       "outputLogs": "new-only"
     },

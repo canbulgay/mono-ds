@@ -21,15 +21,15 @@
 export const yieldToMain = (): Promise<void> => {
   // Use scheduler.yield() if available (modern browsers)
   if (
-    typeof window !== "undefined" &&
-    "scheduler" in window &&
-    "yield" in (window as any).scheduler
+    typeof window !== 'undefined' &&
+    'scheduler' in window &&
+    'yield' in (window as any).scheduler
   ) {
     return (window as any).scheduler.yield();
   }
 
   // Fall back to setTimeout for older browsers
-  return new Promise((resolve) => {
+  return new Promise(resolve => {
     setTimeout(resolve, 0);
   });
 };

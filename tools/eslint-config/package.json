@@ -3,14 +3,39 @@
   "version": "0.0.0",
   "private": true,
   "description": "Shared ESLint configuration for the design system",
-  "main": "index.js",
+  "type": "module",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./base": "./src/index.js",
+    "./react": "./src/index.js",
+    "./node": "./src/index.js",
+    "./test": "./src/index.js"
+  },
   "files": [
-    "*.js"
+    "src/*.js"
+  ],
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "design-system"
   ],
   "scripts": {
     "lint": "echo 'lint:eslint-config'",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {},
-  "devDependencies": {}
+  "devDependencies": {
+    "@eslint/js": "^9.29.0",
+    "@typescript-eslint/eslint-plugin": "^8.35.0",
+    "@typescript-eslint/parser": "^8.35.0",
+    "eslint": "^9.29.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-jsx-a11y": "^6.10.2",
+    "eslint-plugin-prettier": "^5.5.1",
+    "eslint-plugin-react": "^7.37.5",
+    "eslint-plugin-react-hooks": "^5.2.0",
+    "prettier": "^3.4.2",
+    "typescript-eslint": "^8.35.0"
+  }
 }

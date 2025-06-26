@@ -34,10 +34,10 @@ export function initOutsideClick({
     }
   };
 
-  document.addEventListener("mousedown", handleClick);
+  document.addEventListener('mousedown', handleClick);
 
   function cleanup() {
-    document.removeEventListener("mousedown", handleClick);
+    document.removeEventListener('mousedown', handleClick);
   }
 
   return { cleanup };
