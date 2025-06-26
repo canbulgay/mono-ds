@@ -1,0 +1,32 @@
+{
+  "name": "@design-system/core",
+  "version": "0.0.0",
+  "description": "Core utilities and base functionality for the design system",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "dev": "tsc --watch",
+    "clean": "rm -rf dist",
+    "lint": "echo 'lint:core'",
+    "test": "echo 'test:core'",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "peerDependencies": {},
+  "publishConfig": {
+    "access": "restricted"
+  }
+}

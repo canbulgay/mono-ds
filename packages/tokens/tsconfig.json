@@ -1,0 +1,9 @@
+{
+  "extends": "../../tools/tsconfig/tokens.json",
+  "compilerOptions": {
+    "outDir": "dist",
+    "rootDir": "src"
+  },
+  "include": ["src/**/*", "tokens/**/*"],
+  "exclude": ["dist", "node_modules"]
+}

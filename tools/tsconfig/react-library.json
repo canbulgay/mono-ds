@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "React Library",
+  "extends": ["./base.json"],
+  "compilerOptions": {
+    "declaration": true,
+    "declarationMap": true,
+    "composite": true,
+    "noEmit": false,
+    "outDir": "dist",
+    "rootDir": "src",
+    "sourceMap": true,
+    "jsx": "react-jsx",
+    "lib": ["es2022", "dom", "dom.iterable"],
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "verbatimModuleSyntax": false
+  },
+  "include": ["src/**/*"],
+  "exclude": [
+    "dist",
+    "build",
+    "node_modules",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/test/**",
+    "**/tests/**",
+    "**/__tests__/**",
+    "**/stories/**"
+  ]
+}

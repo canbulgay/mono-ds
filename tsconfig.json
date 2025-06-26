@@ -1,0 +1,63 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Root",
+  "extends": ["./tools/tsconfig/base.json"],
+  "compilerOptions": {
+    "incremental": true,
+    "tsBuildInfoFile": ".turbo/tsconfig.tsbuildinfo",
+    "baseUrl": ".",
+    "paths": {
+      "@design-system/core": ["./packages/core/src/index.ts"],
+      "@design-system/core/*": ["./packages/core/src/*"],
+      "@design-system/themes": ["./packages/themes/src/index.ts"],
+      "@design-system/themes/*": ["./packages/themes/src/*"],
+      "@design-system/utils": ["./packages/utils/src/index.ts"],
+      "@design-system/utils/*": ["./packages/utils/src/*"],
+      "@design-system/icons": ["./packages/icons/src/index.ts"],
+      "@design-system/icons/*": ["./packages/icons/src/*"],
+      "@design-system/tokens": ["./packages/tokens/src/index.ts"],
+      "@design-system/tokens/*": ["./packages/tokens/src/*"]
+    }
+  },
+  "include": [],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "build",
+    ".next",
+    "out",
+    "storybook-static",
+    "coverage",
+    ".turbo",
+    "**/*.test.*",
+    "**/*.spec.*",
+    "**/test/**",
+    "**/tests/**"
+  ],
+  "references": [
+    {
+      "path": "./packages/core"
+    },
+    {
+      "path": "./packages/themes"
+    },
+    {
+      "path": "./packages/utils"
+    },
+    {
+      "path": "./packages/icons"
+    },
+    {
+      "path": "./packages/tokens"
+    },
+    {
+      "path": "./apps/docs"
+    },
+    {
+      "path": "./apps/playground"
+    },
+    {
+      "path": "./tools/eslint-config"
+    }
+  ]
+}

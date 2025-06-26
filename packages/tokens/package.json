@@ -1,0 +1,34 @@
+{
+  "name": "@design-system/tokens",
+  "version": "0.0.0",
+  "description": "Design tokens for the design system",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.esm.js",
+      "require": "./dist/index.js"
+    },
+    "./css": "./dist/tokens.css",
+    "./js": "./dist/tokens.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "echo 'Building tokens...'",
+    "tokens:build": "echo 'Building design tokens...'",
+    "dev": "echo 'Watching tokens...'",
+    "clean": "rm -rf dist",
+    "lint": "echo 'lint:tokens'",
+    "test": "echo 'test:tokens'",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {},
+  "devDependencies": {},
+  "publishConfig": {
+    "access": "restricted"
+  }
+}
