@@ -6,12 +6,12 @@
  */
 
 import js from '@eslint/js';
-import tseslint from 'typescript-eslint';
+import configPrettier from 'eslint-config-prettier';
+import pluginImport from 'eslint-plugin-import';
+import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
 import pluginReact from 'eslint-plugin-react';
 import pluginReactHooks from 'eslint-plugin-react-hooks';
-import pluginJsxA11y from 'eslint-plugin-jsx-a11y';
-import pluginImport from 'eslint-plugin-import';
-import configPrettier from 'eslint-config-prettier';
+import tseslint from 'typescript-eslint';
 
 /**
  * Base configuration for all TypeScript/JavaScript files
