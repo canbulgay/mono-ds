@@ -1,0 +1,48 @@
+{
+  "name": "design-system",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Production-ready design system monorepo infrastructure",
+  "keywords": ["design-system", "monorepo", "components", "tokens"],
+  "author": "Design System Team",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0",
+    "pnpm": ">=9.0.0"
+  },
+  "packageManager": "pnpm@9.15.0",
+  "scripts": {
+    "dev": "turbo dev",
+    "build": "turbo build",
+    "test": "turbo test",
+    "test:watch": "turbo test:watch",
+    "lint": "turbo lint",
+    "lint:fix": "turbo lint:fix",
+    "typecheck": "turbo typecheck",
+    "clean": "turbo clean && rm -rf node_modules",
+    "changeset": "changeset",
+    "changeset:version": "changeset version",
+    "changeset:publish": "changeset publish",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "setup": "pnpm install && turbo build"
+  },
+  "devDependencies": {
+    "@changesets/changelog-github": "^0.5.0",
+    "@changesets/cli": "^2.27.9",
+    "prettier": "^3.4.2",
+    "turbo": "^2.4.0",
+    "typescript": "^5.7.2"
+  },
+  "pnpm": {
+    "packageExtensions": {
+      "react": {
+        "peerDependenciesMeta": {
+          "react": {
+            "optional": true
+          }
+        }
+      }
+    }
+  }
+}

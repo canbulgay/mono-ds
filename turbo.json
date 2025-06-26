@@ -1,0 +1,147 @@
+{
+  "$schema": "https://turborepo.com/schema.json",
+  "ui": "tui",
+  "envMode": "loose",
+  "daemon": true,
+  "cacheDir": ".turbo/cache",
+  "globalEnv": [
+    "NODE_ENV",
+    "CI",
+    "VERCEL",
+    "NETLIFY",
+    "GITHUB_ACTIONS"
+  ],
+  "globalDependencies": [
+    "package.json",
+    "pnpm-workspace.yaml",
+    "turbo.json",
+    ".env",
+    ".env.local"
+  ],
+  "tasks": {
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "src/**",
+        "lib/**",
+        "components/**",
+        "styles/**",
+        "public/**",
+        "!**/*.test.*",
+        "!**/*.spec.*",
+        "!**/stories/**",
+        "!**/__tests__/**"
+      ],
+      "outputs": [
+        "dist/**",
+        ".next/**",
+        "!.next/cache/**",
+        "build/**",
+        "out/**",
+        "storybook-static/**",
+        "coverage/**"
+      ],
+      "outputLogs": "new-only"
+    },
+    "dev": {
+      "cache": false,
+      "persistent": true,
+      "outputLogs": "full"
+    },
+    "test": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "src/**",
+        "lib/**",
+        "components/**",
+        "**/*.test.*",
+        "**/*.spec.*",
+        "**/__tests__/**",
+        "jest.config.*",
+        "vitest.config.*",
+        "playwright.config.*"
+      ],
+      "outputs": ["coverage/**"],
+      "outputLogs": "errors-only"
+    },
+    "test:watch": {
+      "cache": false,
+      "persistent": true,
+      "dependsOn": ["^build"]
+    },
+    "test:e2e": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "outputLogs": "errors-only"
+    },
+    "lint": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "src/**",
+        "lib/**",
+        "components/**",
+        ".eslintrc.*",
+        "eslint.config.*"
+      ],
+      "outputLogs": "errors-only"
+    },
+    "lint:fix": {
+      "dependsOn": ["^build"],
+      "cache": false,
+      "outputLogs": "errors-only"
+    },
+    "typecheck": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "src/**",
+        "lib/**",
+        "components/**",
+        "tsconfig.json",
+        "tsconfig.*.json"
+      ],
+      "outputLogs": "errors-only"
+    },
+    "format": {
+      "cache": false,
+      "outputLogs": "errors-only"
+    },
+    "format:check": {
+      "outputLogs": "errors-only"
+    },
+    "clean": {
+      "cache": false
+    },
+    "storybook": {
+      "cache": false,
+      "persistent": true
+    },
+    "storybook:build": {
+      "dependsOn": ["^build"],
+      "inputs": [
+        "$TURBO_DEFAULT$",
+        "src/**",
+        "lib/**",
+        "components/**",
+        "stories/**",
+        ".storybook/**"
+      ],
+      "outputs": ["storybook-static/**"],
+      "outputLogs": "new-only"
+    },
+    "tokens:build": {
+      "inputs": [
+        "tokens/**",
+        "style-dictionary.config.*"
+      ],
+      "outputs": [
+        "dist/**",
+        "build/**"
+      ],
+      "outputLogs": "new-only"
+    }
+  }
+}

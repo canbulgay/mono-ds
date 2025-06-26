@@ -1,0 +1,28 @@
+packages:
+  - "apps/*"
+  - "packages/*"
+  - "tools/*"
+
+# Global pnpm settings for the workspace
+verifyDepsBeforeRun: true
+optimisticRepeatInstall: true
+enableGlobalVirtualStore: true
+workspaceConcurrency: 4
+resolve-peers-from-workspace-root: true
+save-workspace-protocol: rolling
+prefer-workspace-packages: true
+
+# Public hoisting patterns for better performance
+publicHoistPattern:
+  - "*types*"
+  - "*eslint*"
+  - "*prettier*"
+  - "typescript"
+  - "webpack"
+  - "rollup"
+  - "vite"
+
+# Never hoist these packages to avoid conflicts
+neverBuiltDependencies:
+  - "fsevents"
+  - "esbuild"
