@@ -1,9 +1,10 @@
 {
   "$schema": "https://turborepo.com/schema.json",
   "ui": "tui",
-  "envMode": "loose",
+  "envMode": "strict",
   "daemon": true,
   "cacheDir": ".turbo/cache",
+  "remoteCache": {},
   "globalEnv": ["NODE_ENV", "CI", "VERCEL", "NETLIFY", "GITHUB_ACTIONS"],
   "globalDependencies": ["package.json", "pnpm-workspace.yaml", "turbo.json", ".env", ".env.local"],
   "tasks": {
@@ -19,10 +20,12 @@
         "!**/*.test.*",
         "!**/*.spec.*",
         "!**/stories/**",
-        "!**/__tests__/**"
+        "!**/__tests__/**",
+        "!**/*.stories.*"
       ],
-      "outputs": ["dist/**", ".next/**", "!.next/cache/**", "build/**", "out/**", "storybook-static/**", "coverage/**"],
-      "outputLogs": "new-only"
+      "outputs": ["dist/**", ".next/**", "!.next/cache/**", "build/**", "out/**", "storybook-static/**"],
+      "outputLogs": "errors-only",
+      "env": ["NODE_ENV"]
     },
     "dev": {
       "cache": false,
@@ -44,7 +47,8 @@
         "playwright.config.*"
       ],
       "outputs": ["coverage/**"],
-      "outputLogs": "errors-only"
+      "outputLogs": "errors-only",
+      "env": ["NODE_ENV", "CI"]
     },
     "test:watch": {
       "cache": false,

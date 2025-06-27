@@ -18,7 +18,7 @@
     "dist"
   ],
   "scripts": {
-    "build": "echo 'Building tokens...'",
+    "build": "tsc",
     "tokens:build": "echo 'Building design tokens...'",
     "dev": "echo 'Watching tokens...'",
     "clean": "rm -rf dist",

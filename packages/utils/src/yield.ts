@@ -1,3 +1,16 @@
+declare global {
+  /** Minimal shape of the experimental Scheduler API */
+  interface Scheduler {
+    /** Hint to the browser: return back to the main thread and resume later */
+    yield(): Promise<void>;
+  }
+
+  interface Window {
+    /** the experimental scheduler API (not yet in lib.dom.d.ts) */
+    scheduler?: Scheduler;
+  }
+}
+
 /**
  * Yields to the main thread, allowing the browser to perform other tasks.
  * Uses the scheduler.yield() API if available, otherwise falls back to setTimeout.
@@ -23,9 +36,9 @@ export const yieldToMain = (): Promise<void> => {
   if (
     typeof window !== 'undefined' &&
     'scheduler' in window &&
-    'yield' in (window as any).scheduler
+    'yield' in window.scheduler
   ) {
-    return (window as any).scheduler.yield();
+    return window.scheduler.yield();
   }
 
   // Fall back to setTimeout for older browsers
@@ -50,8 +63,10 @@ export const createYieldingFunction = <T, R>(
     const results: R[] = [];
 
     for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item === undefined) continue;
       // Process the current item
-      results.push(await fn(items[i]));
+      results.push(await fn(item));
 
       // Yield to main thread based on the specified interval
       if (i > 0 && i % yieldInterval === 0) {
@@ -88,8 +103,10 @@ export const YieldController = {
     const results: R[] = [];
 
     for (let i = 0; i < items.length; i++) {
+      const item = items[i];
+      if (item === undefined) continue;
       // Process the current item
-      results.push(await processFn(items[i], i));
+      results.push(await processFn(item, i));
 
       // Yield to main thread based on the specified interval
       if (i > 0 && i % yieldInterval === 0) {
