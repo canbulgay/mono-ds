@@ -17,6 +17,8 @@
         "components/**",
         "styles/**",
         "public/**",
+        "tailwind.config.*",
+        "postcss.config.*",
         "!**/*.test.*",
         "!**/*.spec.*",
         "!**/stories/**",

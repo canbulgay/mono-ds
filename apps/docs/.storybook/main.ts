@@ -19,5 +19,16 @@ const config: StorybookConfig = {
     name: getAbsolutePath('@storybook/react-webpack5'),
     options: {},
   },
+  features: {
+    buildStoriesJson: true,
+  },
+  webpackFinal: async (config) => {
+    config.resolve = config.resolve || {};
+    config.resolve.alias = {
+      ...config.resolve.alias,
+      '@design-system/utils': join(__dirname, '../../../packages/utils/src'),
+    };
+    return config;
+  },
 };
 export default config;

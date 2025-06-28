@@ -16,3 +16,4 @@ export { debounce } from './debounce';
 export { throttle } from './throttle';
 export { deepMerge } from './deep-merge';
 export { initOutsideClick } from './init-outside-click';
+export { cn } from './cn';

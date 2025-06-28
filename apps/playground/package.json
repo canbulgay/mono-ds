@@ -16,7 +16,8 @@
     "@design-system/tokens": "workspace:*",
     "@design-system/themes": "workspace:*",
     "@design-system/utils": "workspace:*",
-    "@design-system/icons": "workspace:*"
+    "@design-system/icons": "workspace:*",
+    "@design-system/tailwind-config": "workspace:*"
   },
   "devDependencies": {}
 }
