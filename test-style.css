@@ -1,0 +1,5 @@
+/* Test CSS file for stylelint */
+.test-class {
+  color: #f00;
+  background-color: #00f;
+}
