@@ -29,8 +29,8 @@ export const base = {
     // Number rules
     'number-max-precision': 3,
 
-    // String rules
-    'string-quotes': 'single',
+    // String rules (deprecated in v16+)
+    // 'string-quotes': 'single',
 
     // Unit rules
     'unit-allowed-list': [
@@ -65,7 +65,6 @@ export const base = {
 
     // Property rules
     'property-no-vendor-prefix': true,
-    'property-case': 'lower',
 
     // Declaration rules
     'declaration-no-important': true,
@@ -112,6 +111,20 @@ export const base = {
 
     // At-rule rules
     'at-rule-no-vendor-prefix': true,
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: [
+          'tailwind',
+          'apply',
+          'variants',
+          'responsive',
+          'screen',
+          'layer',
+          'property',
+        ],
+      },
+    ],
 
     // Comment rules
     'comment-empty-line-before': [
@@ -135,6 +148,9 @@ export const base = {
 
     // Value rules
     'value-no-vendor-prefix': true,
+
+    // Import rules
+    'import-notation': 'string',
   },
 };
 
@@ -208,7 +224,7 @@ export const cssInJs = {
     'color-named': 'never',
     'font-family-name-quotes': 'always-where-recommended',
     'function-url-quotes': 'always',
-    'string-quotes': 'single',
+    // 'string-quotes': 'single', // deprecated in v16+
     'unit-allowed-list': base.rules['unit-allowed-list'],
   },
 };
