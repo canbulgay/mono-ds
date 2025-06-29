@@ -1,4 +1,3 @@
-// Write a function that handles capitilize first letter of a string using typescript types for the input and output.
 /**
  * Capitalizes the first letter of a string
  *

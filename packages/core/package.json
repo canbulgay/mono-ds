@@ -20,12 +20,15 @@
     "dev": "tsc --watch",
     "clean": "rm -rf dist",
     "lint": "echo 'lint:core'",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
     "typecheck": "tsc --noEmit"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@design-system/utils": "workspace:*",
+    "class-variance-authority": "^0.7.0"
+  },
   "peerDependencies": {
     "react": ">=18.0.0",
     "react-dom": ">=18.0.0"

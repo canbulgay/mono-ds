@@ -26,7 +26,11 @@ export default [
   // React configuration for React components and apps
   ...react.map(config => ({
     ...config,
-    files: ['apps/docs/**/*.{ts,tsx,js,jsx}', '**/stories/**/*.{ts,tsx,js,jsx}'],
+    files: [
+      'apps/docs/**/*.{ts,tsx,js,jsx}', 
+      'packages/core/**/*.{ts,tsx,js,jsx}',
+      '**/stories/**/*.{ts,tsx,js,jsx}'
+    ],
   })),
 
   // Node.js configuration for build scripts and configs

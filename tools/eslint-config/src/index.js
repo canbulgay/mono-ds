@@ -115,6 +115,11 @@ export const react = tseslint.config(
       react: {
         version: 'detect',
       },
+      'import/resolver': {
+        typescript: {
+          project: ['../../../tsconfig.json'],
+        },
+      },
     },
     rules: {
       // React rules

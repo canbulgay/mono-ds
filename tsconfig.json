@@ -5,6 +5,7 @@
   "compilerOptions": {
     "incremental": true,
     "tsBuildInfoFile": ".turbo/tsconfig.tsbuildinfo",
+    "allowSyntheticDefaultImports": true,
     "baseUrl": ".",
     "paths": {
       "@design-system/core": ["./packages/core/src/index.ts"],
@@ -19,7 +20,7 @@
       "@design-system/tokens/*": ["./packages/tokens/src/*"]
     }
   },
-  "include": [],
+  "include": ["packages/**/*"],
   "exclude": [
     "node_modules",
     "dist",
@@ -51,6 +52,9 @@
       "path": "./packages/tokens"
     },
     {
+      "path": "./packages/tailwind-config"
+    },
+    {
       "path": "./apps/docs"
     },
     {
@@ -58,6 +62,12 @@
     },
     {
       "path": "./tools/eslint-config"
+    },
+    {
+      "path": "./tools/prettier-config"
+    },
+    {
+      "path": "./tools/tsconfig"
     }
   ]
 }
