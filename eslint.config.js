@@ -3,7 +3,13 @@
  * Uses our shared configuration packages for consistency
  */
 
-import { base, react, node, test, disableTypeChecked } from './tools/eslint-config/src/index.js';
+import {
+  base,
+  react,
+  node,
+  test,
+  disableTypeChecked,
+} from './tools/eslint-config/src/index.js';
 
 export default [
   // Ignore patterns
@@ -27,9 +33,9 @@ export default [
   ...react.map(config => ({
     ...config,
     files: [
-      'apps/docs/**/*.{ts,tsx,js,jsx}', 
+      'apps/docs/**/*.{ts,tsx,js,jsx}',
       'packages/core/**/*.{ts,tsx,js,jsx}',
-      '**/stories/**/*.{ts,tsx,js,jsx}'
+      '**/stories/**/*.{ts,tsx,js,jsx}',
     ],
   })),
 
@@ -49,7 +55,11 @@ export default [
   // Test configuration for test files
   ...test.map(config => ({
     ...config,
-    files: ['**/*.test.{ts,tsx,js,jsx}', '**/*.spec.{ts,tsx,js,jsx}', '**/test/**/*.{ts,tsx,js,jsx}'],
+    files: [
+      '**/*.test.{ts,tsx,js,jsx}',
+      '**/*.spec.{ts,tsx,js,jsx}',
+      '**/test/**/*.{ts,tsx,js,jsx}',
+    ],
   })),
 
   // Disable type-checked rules for JavaScript files

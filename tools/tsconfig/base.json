@@ -27,5 +27,31 @@
     "target": "es2022",
     "moduleDetection": "force",
     "jsx": "react-jsx"
-  }
+  },
+  "references": [
+    {
+      "path": "./packages/core"
+    },
+    {
+      "path": "./packages/themes"
+    },
+    {
+      "path": "./packages/utils"
+    },
+    {
+      "path": "./packages/icons"
+    },
+    {
+      "path": "./packages/tokens"
+    },
+    {
+      "path": "./packages/tailwind-config"
+    },
+    {
+      "path": "./tools/eslint-config"
+    },
+    {
+      "path": "./tools/tsconfig"
+    }
+  ]
 }

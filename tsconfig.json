@@ -56,9 +56,6 @@
       "path": "./packages/tailwind-config"
     },
     {
-      "path": "./apps/docs"
-    },
-    {
       "path": "./tools/eslint-config"
     },
     {

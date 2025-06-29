@@ -1,5 +1,5 @@
 import { cn } from '@design-system/utils';
-import * as React from 'react';
+import React from 'react';
 
 import Spinner from '../Spinner';
 
@@ -18,7 +18,7 @@ const Button = <C extends React.ElementType = 'button'>(
     shape = 'default',
     block = false,
     ref,
-    as: asComp,
+    as: asComp = 'button',
     prefix,
     onClick,
     disabled,
@@ -28,12 +28,13 @@ const Button = <C extends React.ElementType = 'button'>(
     ...rest
   } = props;
 
-  const _disabled = disabled || loading;
+  const _disabled = disabled ?? loading;
   const Component = asComp || 'button';
 
   const handleClick = React.useCallback(
     (e: React.MouseEvent) => {
       if (onClick && !loading) {
+        // eslint-disable-next-line @typescript-eslint/no-unsafe-call
         onClick(e);
       }
     },
@@ -85,14 +86,6 @@ const Button = <C extends React.ElementType = 'button'>(
       {icon && icon}
     </>
   );
-};
-
-Button.defaultProps = {
-  size: 'default',
-  shape: 'default',
-  palette: 'primary',
-  as: 'button',
-  type: 'button',
 };
 
 export default Button;

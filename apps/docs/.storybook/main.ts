@@ -22,11 +22,15 @@ const config: StorybookConfig = {
   features: {
     buildStoriesJson: true,
   },
-  webpackFinal: async (config) => {
+  webpackFinal: async config => {
     config.resolve = config.resolve || {};
     config.resolve.alias = {
       ...config.resolve.alias,
+      '@design-system/core': join(__dirname, '../../../packages/core/src'),
+      '@design-system/tokens': join(__dirname, '../../../packages/tokens/src'),
+      '@design-system/themes': join(__dirname, '../../../packages/themes/src'),
       '@design-system/utils': join(__dirname, '../../../packages/utils/src'),
+      '@design-system/icons': join(__dirname, '../../../packages/icons/src'),
     };
     return config;
   },
