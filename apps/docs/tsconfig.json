@@ -1,6 +1,13 @@
 {
-  "extends": "../../tools/tsconfig/nextjs.json",
+  "extends": "../../tools/tsconfig/base.json",
   "compilerOptions": {
+    "composite": true,
+    "declaration": true,
+    "declarationMap": true,
+    "outDir": "dist",
+    "rootDir": "src",
+    "noEmit": false,
+    "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
       "@design-system/core": ["../../packages/core/src"],
@@ -10,5 +17,6 @@
       "@design-system/icons": ["../../packages/icons/src"]
     }
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx", "next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
+  "include": ["src/**/*.ts", "src/**/*.tsx"],
+  "exclude": ["dist", "storybook-static", "node_modules"]
 }

@@ -6,6 +6,7 @@
     "incremental": true,
     "tsBuildInfoFile": ".turbo/tsconfig.tsbuildinfo",
     "allowSyntheticDefaultImports": true,
+    "allowImportingTsExtensions": false,
     "baseUrl": ".",
     "paths": {
       "@design-system/core": ["./packages/core/src/index.ts"],
@@ -58,13 +59,7 @@
       "path": "./apps/docs"
     },
     {
-      "path": "./apps/playground"
-    },
-    {
       "path": "./tools/eslint-config"
-    },
-    {
-      "path": "./tools/prettier-config"
     },
     {
       "path": "./tools/tsconfig"

@@ -39,6 +39,17 @@ export const base = tseslint.config(
     plugins: {
       import: pluginImport,
     },
+    settings: {
+      'import/resolver': {
+        typescript: {
+          alwaysTryTypes: true,
+          project: true,
+        },
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
+        },
+      },
+    },
     rules: {
       // Import rules
       'import/order': [
@@ -117,7 +128,11 @@ export const react = tseslint.config(
       },
       'import/resolver': {
         typescript: {
-          project: ['../../../tsconfig.json'],
+          alwaysTryTypes: true,
+          project: true,
+        },
+        node: {
+          extensions: ['.js', '.jsx', '.ts', '.tsx'],
         },
       },
     },
