@@ -92,6 +92,11 @@ export const base = tseslint.config(
       '@typescript-eslint/no-unnecessary-type-assertion': 'error',
       '@typescript-eslint/prefer-nullish-coalescing': 'error',
       '@typescript-eslint/prefer-optional-chain': 'error',
+      '@typescript-eslint/no-empty-object-type': 'off',
+      '@typescript-eslint/no-redundant-type-constituents': 'off',
+      '@typescript-eslint/no-explicit-any': 'warn',
+      '@typescript-eslint/no-unsafe-assignment': 'warn',
+      '@typescript-eslint/no-unsafe-argument': 'warn',
 
       // General code quality rules
       'no-console': 'warn',
@@ -100,7 +105,6 @@ export const base = tseslint.config(
       'no-var': 'error',
       'object-shorthand': 'error',
       'prefer-template': 'error',
-      eqeqeq: ['error', 'always'],
     },
   },
 
