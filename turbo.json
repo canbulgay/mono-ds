@@ -17,6 +17,9 @@
         "components/**",
         "styles/**",
         "public/**",
+        "app/**",
+        "pages/**",
+        "next.config.*",
         "tailwind.config.*",
         "postcss.config.*",
         "!**/*.test.*",
@@ -30,6 +33,12 @@
       "env": ["NODE_ENV"]
     },
     "dev": {
+      "cache": false,
+      "persistent": true,
+      "outputLogs": "full"
+    },
+    "start": {
+      "dependsOn": ["build"],
       "cache": false,
       "persistent": true,
       "outputLogs": "full"

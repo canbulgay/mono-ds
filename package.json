@@ -19,7 +19,10 @@
   "packageManager": "pnpm@9.15.0",
   "scripts": {
     "dev": "turbo dev",
+    "dev:web": "turbo dev --filter=@design-system/web",
     "build": "turbo build",
+    "build:web": "turbo build --filter=@design-system/web",
+    "start:web": "turbo start --filter=@design-system/web",
     "test": "turbo test",
     "test:watch": "turbo test:watch",
     "lint": "turbo lint",

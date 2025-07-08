@@ -60,6 +60,9 @@
     },
     {
       "path": "./tools/tsconfig"
+    },
+    {
+      "path": "./apps/web"
     }
   ]
 }
