@@ -66,7 +66,6 @@ export default {
     'subject-case': [2, 'never', ['start-case', 'pascal-case', 'upper-case']],
     'subject-empty': [2, 'never'],
     'subject-full-stop': [2, 'never', '.'],
-    'subject-max-length': [2, 'always', 72],
     'body-leading-blank': [2, 'always'],
     'body-max-line-length': [2, 'always', 150],
 

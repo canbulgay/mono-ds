@@ -55,14 +55,12 @@ component libraries, utilities, and theming.
 packages/
 ├── core/          # Main component library with UI components
 ├── utils/         # Shared utility functions
-├── themes/        # Theme definitions and utilities
-├── tokens/        # Design tokens
 ├── icons/         # Icon components
 └── tailwind-config/ # Shared Tailwind configuration
 
 apps/
 ├── docs/          # Storybook documentation
-└── playground/    # Development playground
+└── web/           # Next.js web application
 
 tools/
 ├── eslint-config/ # Shared ESLint configuration
@@ -95,9 +93,8 @@ Components in `packages/core/` follow these patterns:
 
 - `@design-system/core` - Main component library
 - `@design-system/utils` - Shared utilities (cn, debounce, etc.)
-- `@design-system/themes` - Theme definitions
-- `@design-system/tokens` - Design tokens
 - `@design-system/icons` - Icon components
+- `@design-system/tailwind-config` - Shared Tailwind configuration
 
 ## TypeScript Configuration
 
