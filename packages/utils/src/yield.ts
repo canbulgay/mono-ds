@@ -36,6 +36,7 @@ export const yieldToMain = (): Promise<void> => {
   if (
     typeof window !== 'undefined' &&
     'scheduler' in window &&
+    window.scheduler &&
     'yield' in window.scheduler
   ) {
     return window.scheduler.yield();

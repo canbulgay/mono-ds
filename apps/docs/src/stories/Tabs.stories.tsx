@@ -10,6 +10,7 @@ import {
   TabsContent,
   TabsList,
   TabsTrigger,
+  Label,
 } from '@design-system/core';
 import type { Meta, StoryObj } from '@storybook/react-webpack5';
 
@@ -38,7 +39,7 @@ type Story = StoryObj<typeof meta>;
 
 export const Default: Story = {
   render: () => (
-    <Tabs defaultValue='account' className='w-[400px]'>
+    <Tabs className='w-[400px]' defaultValue='account'>
       <TabsList>
         <TabsTrigger value='account'>Account</TabsTrigger>
         <TabsTrigger value='password'>Password</TabsTrigger>
@@ -54,16 +55,16 @@ export const Default: Story = {
           </CardHeader>
           <CardContent className='space-y-2'>
             <div className='space-y-1'>
-              <label htmlFor='name' className='text-sm font-medium'>
+              <Label className='text-sm font-medium' htmlFor='name'>
                 Name
-              </label>
-              <Input id='name' defaultValue='John Doe' />
+              </Label>
+              <Input defaultValue='John Doe' id='name' />
             </div>
             <div className='space-y-1'>
-              <label htmlFor='username' className='text-sm font-medium'>
+              <Label className='text-sm font-medium' htmlFor='username'>
                 Username
-              </label>
-              <Input id='username' defaultValue='@johndoe' />
+              </Label>
+              <Input defaultValue='@johndoe' id='username' />
             </div>
           </CardContent>
         </Card>
@@ -79,15 +80,15 @@ export const Default: Story = {
           </CardHeader>
           <CardContent className='space-y-2'>
             <div className='space-y-1'>
-              <label htmlFor='current' className='text-sm font-medium'>
+              <Label className='text-sm font-medium' htmlFor='current'>
                 Current password
-              </label>
+              </Label>
               <Input id='current' type='password' />
             </div>
             <div className='space-y-1'>
-              <label htmlFor='new' className='text-sm font-medium'>
+              <Label className='text-sm font-medium' htmlFor='new'>
                 New password
-              </label>
+              </Label>
               <Input id='new' type='password' />
             </div>
           </CardContent>
@@ -99,14 +100,14 @@ export const Default: Story = {
 
 export const WithMultipleTabs: Story = {
   render: () => (
-    <Tabs defaultValue='overview' className='w-[600px]'>
+    <Tabs className='w-[600px]' defaultValue='overview'>
       <TabsList>
         <TabsTrigger value='overview'>Overview</TabsTrigger>
         <TabsTrigger value='analytics'>Analytics</TabsTrigger>
         <TabsTrigger value='reports'>Reports</TabsTrigger>
         <TabsTrigger value='notifications'>Notifications</TabsTrigger>
       </TabsList>
-      <TabsContent value='overview' className='space-y-4'>
+      <TabsContent className='space-y-4' value='overview'>
         <Card>
           <CardHeader>
             <CardTitle>Overview</CardTitle>
@@ -119,7 +120,7 @@ export const WithMultipleTabs: Story = {
           </CardContent>
         </Card>
       </TabsContent>
-      <TabsContent value='analytics' className='space-y-4'>
+      <TabsContent className='space-y-4' value='analytics'>
         <Card>
           <CardHeader>
             <CardTitle>Analytics</CardTitle>
@@ -132,7 +133,7 @@ export const WithMultipleTabs: Story = {
           </CardContent>
         </Card>
       </TabsContent>
-      <TabsContent value='reports' className='space-y-4'>
+      <TabsContent className='space-y-4' value='reports'>
         <Card>
           <CardHeader>
             <CardTitle>Reports</CardTitle>
@@ -142,7 +143,7 @@ export const WithMultipleTabs: Story = {
           </CardContent>
         </Card>
       </TabsContent>
-      <TabsContent value='notifications' className='space-y-4'>
+      <TabsContent className='space-y-4' value='notifications'>
         <Card>
           <CardHeader>
             <CardTitle>Notifications</CardTitle>
@@ -158,11 +159,11 @@ export const WithMultipleTabs: Story = {
 
 export const DisabledTab: Story = {
   render: () => (
-    <Tabs defaultValue='general' className='w-[400px]'>
+    <Tabs className='w-[400px]' defaultValue='general'>
       <TabsList>
         <TabsTrigger value='general'>General</TabsTrigger>
         <TabsTrigger value='security'>Security</TabsTrigger>
-        <TabsTrigger value='billing' disabled>
+        <TabsTrigger disabled value='billing'>
           Billing
         </TabsTrigger>
       </TabsList>
@@ -205,21 +206,21 @@ export const DisabledTab: Story = {
 export const VerticalTabs: Story = {
   render: () => (
     <Tabs
+      className='w-[600px] flex space-x-4'
       defaultValue='profile'
       orientation='vertical'
-      className='w-[600px] flex space-x-4'
     >
       <TabsList className='flex-col h-auto w-48'>
-        <TabsTrigger value='profile' className='w-full justify-start'>
+        <TabsTrigger className='w-full justify-start' value='profile'>
           Profile
         </TabsTrigger>
-        <TabsTrigger value='account' className='w-full justify-start'>
+        <TabsTrigger className='w-full justify-start' value='account'>
           Account
         </TabsTrigger>
-        <TabsTrigger value='appearance' className='w-full justify-start'>
+        <TabsTrigger className='w-full justify-start' value='appearance'>
           Appearance
         </TabsTrigger>
-        <TabsTrigger value='notifications' className='w-full justify-start'>
+        <TabsTrigger className='w-full justify-start' value='notifications'>
           Notifications
         </TabsTrigger>
       </TabsList>
@@ -281,13 +282,13 @@ export const VerticalTabs: Story = {
 
 export const SimpleContent: Story = {
   render: () => (
-    <Tabs defaultValue='tab1' className='w-[400px]'>
+    <Tabs className='w-[400px]' defaultValue='tab1'>
       <TabsList>
         <TabsTrigger value='tab1'>Tab 1</TabsTrigger>
         <TabsTrigger value='tab2'>Tab 2</TabsTrigger>
         <TabsTrigger value='tab3'>Tab 3</TabsTrigger>
       </TabsList>
-      <TabsContent value='tab1' className='mt-4'>
+      <TabsContent className='mt-4' value='tab1'>
         <div className='p-4 border rounded-lg'>
           <h3 className='font-medium mb-2'>Content for Tab 1</h3>
           <p className='text-sm text-muted-foreground'>
@@ -295,7 +296,7 @@ export const SimpleContent: Story = {
           </p>
         </div>
       </TabsContent>
-      <TabsContent value='tab2' className='mt-4'>
+      <TabsContent className='mt-4' value='tab2'>
         <div className='p-4 border rounded-lg'>
           <h3 className='font-medium mb-2'>Content for Tab 2</h3>
           <p className='text-sm text-muted-foreground'>
@@ -303,7 +304,7 @@ export const SimpleContent: Story = {
           </p>
         </div>
       </TabsContent>
-      <TabsContent value='tab3' className='mt-4'>
+      <TabsContent className='mt-4' value='tab3'>
         <div className='p-4 border rounded-lg'>
           <h3 className='font-medium mb-2'>Content for Tab 3</h3>
           <p className='text-sm text-muted-foreground'>
@@ -317,50 +318,52 @@ export const SimpleContent: Story = {
 
 export const WithForm: Story = {
   render: () => (
-    <Tabs defaultValue='personal' className='w-[500px]'>
+    <Tabs className='w-[500px]' defaultValue='personal'>
       <TabsList>
         <TabsTrigger value='personal'>Personal Info</TabsTrigger>
         <TabsTrigger value='contact'>Contact</TabsTrigger>
         <TabsTrigger value='preferences'>Preferences</TabsTrigger>
       </TabsList>
-      <TabsContent value='personal' className='space-y-4'>
+      <TabsContent className='space-y-4' value='personal'>
         <div className='space-y-2'>
-          <label htmlFor='firstName' className='text-sm font-medium'>
+          <Label className='text-sm font-medium' htmlFor='firstName'>
             First Name
-          </label>
+          </Label>
           <Input id='firstName' placeholder='Enter your first name' />
         </div>
         <div className='space-y-2'>
-          <label htmlFor='lastName' className='text-sm font-medium'>
+          <Label className='text-sm font-medium' htmlFor='lastName'>
             Last Name
-          </label>
+          </Label>
           <Input id='lastName' placeholder='Enter your last name' />
         </div>
         <Button>Save Personal Info</Button>
       </TabsContent>
-      <TabsContent value='contact' className='space-y-4'>
+      <TabsContent className='space-y-4' value='contact'>
         <div className='space-y-2'>
-          <label htmlFor='email' className='text-sm font-medium'>
+          <Label className='text-sm font-medium' htmlFor='email'>
             Email
-          </label>
-          <Input id='email' type='email' placeholder='Enter your email' />
+          </Label>
+          <Input id='email' placeholder='Enter your email' type='email' />
         </div>
         <div className='space-y-2'>
-          <label htmlFor='phone' className='text-sm font-medium'>
+          <Label className='text-sm font-medium' htmlFor='phone'>
             Phone
-          </label>
-          <Input id='phone' type='tel' placeholder='Enter your phone number' />
+          </Label>
+          <Input id='phone' placeholder='Enter your phone number' type='tel' />
         </div>
         <Button>Save Contact Info</Button>
       </TabsContent>
-      <TabsContent value='preferences' className='space-y-4'>
+      <TabsContent className='space-y-4' value='preferences'>
         <div className='space-y-2'>
-          <label className='text-sm font-medium'>Email Notifications</label>
+          <Label className='text-sm font-medium' htmlFor='emailNotifications'>
+            Email Notifications
+          </Label>
           <div className='flex items-center space-x-2'>
-            <input type='checkbox' id='emailNotifications' />
-            <label htmlFor='emailNotifications' className='text-sm'>
+            <input id='emailNotifications' type='checkbox' />
+            <Label className='text-sm' htmlFor='emailNotifications'>
               Receive email notifications
-            </label>
+            </Label>
           </div>
         </div>
         <Button>Save Preferences</Button>

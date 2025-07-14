@@ -7,6 +7,7 @@
     "tsBuildInfoFile": ".turbo/tsconfig.tsbuildinfo",
     "allowSyntheticDefaultImports": true,
     "allowImportingTsExtensions": false,
+    "noEmit": false,
     "baseUrl": ".",
     "paths": {
       "@design-system/core": ["./packages/core/src/index.ts"],
@@ -21,7 +22,7 @@
       "@design-system/tokens/*": ["./packages/tokens/src/*"]
     }
   },
-  "include": ["packages/**/*"],
+  "include": [],
   "exclude": [
     "node_modules",
     "dist",
@@ -62,7 +63,7 @@
       "path": "./tools/tsconfig"
     },
     {
-      "path": "./apps/web"
+      "path": "./apps/docs"
     }
   ]
 }

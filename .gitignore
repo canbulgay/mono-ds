@@ -79,12 +79,16 @@ temp/
 
 # TypeScript
 *.tsbuildinfo
+**/*.tsbuildinfo
 *.d.ts.map
 # Exclude generated JS/d.ts files from src directories (only allow in dist)
 packages/*/src/**/*.js
 packages/*/src/**/*.d.ts
 packages/*/src/**/*.js.map
 !packages/*/src/**/*.stories.js
+
+# Generated/compiled CSS files
+apps/docs/src/compiled.css
 
 # Documentation
 .docusaurus/

@@ -13,6 +13,12 @@ export default [
       'coverage/**',
       'public/**',
     ],
+    languageOptions: {
+      parserOptions: {
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
+      },
+    },
   },
   {
     files: ['**/*.config.{js,ts}'],

@@ -32,6 +32,26 @@
       "outputLogs": "errors-only",
       "env": ["NODE_ENV"]
     },
+    "@design-system/utils#build": {
+      "dependsOn": [],
+      "outputs": ["dist/**"],
+      "outputLogs": "errors-only"
+    },
+    "@design-system/core#build": {
+      "dependsOn": ["@design-system/utils#build"],
+      "outputs": ["dist/**"],
+      "outputLogs": "errors-only"
+    },
+    "@design-system/playground#build": {
+      "dependsOn": ["^build"],
+      "outputs": [],
+      "outputLogs": "errors-only"
+    },
+    "@design-system/tailwind-config#build": {
+      "dependsOn": ["^build"],
+      "outputs": [],
+      "outputLogs": "errors-only"
+    },
     "dev": {
       "cache": false,
       "persistent": true,
@@ -84,6 +104,11 @@
     "typecheck": {
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", "src/**", "lib/**", "components/**", "tsconfig.json", "tsconfig.*.json"],
+      "outputLogs": "errors-only"
+    },
+    "@design-system/docs#typecheck": {
+      "dependsOn": ["^build"],
+      "outputs": [],
       "outputLogs": "errors-only"
     },
     "format": {

@@ -6,6 +6,7 @@
     "declarationMap": true,
     "outDir": "dist",
     "jsx": "react-jsx",
+    "skipLibCheck": true,
     "baseUrl": ".",
     "paths": {
       "@design-system/core": ["../../packages/core/src"],
@@ -19,7 +20,19 @@
   "exclude": ["dist", "storybook-static", "node_modules"],
   "references": [
     {
+      "path": "../../packages/utils"
+    },
+    {
       "path": "../../packages/core"
+    },
+    {
+      "path": "../../packages/themes"
+    },
+    {
+      "path": "../../packages/tokens"
+    },
+    {
+      "path": "../../packages/icons"
     }
   ]
 }
