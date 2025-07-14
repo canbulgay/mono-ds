@@ -13,8 +13,6 @@
     "paths": {
       "@design-system/core": ["../../packages/core/src"],
       "@design-system/utils": ["../../packages/utils/src"],
-      "@design-system/themes": ["../../packages/themes/src"],
-      "@design-system/tokens": ["../../packages/tokens/src"],
       "@design-system/icons": ["../../packages/icons/src"],
       "@design-system/tailwind-config": ["../../packages/tailwind-config"],
       "@/*": ["./src/*"]
@@ -28,12 +26,6 @@
     },
     {
       "path": "../../packages/core"
-    },
-    {
-      "path": "../../packages/themes"
-    },
-    {
-      "path": "../../packages/tokens"
     },
     {
       "path": "../../packages/icons"

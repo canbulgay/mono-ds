@@ -42,11 +42,6 @@
       "outputs": ["dist/**"],
       "outputLogs": "errors-only"
     },
-    "@design-system/playground#build": {
-      "dependsOn": ["^build"],
-      "outputs": [],
-      "outputLogs": "errors-only"
-    },
     "@design-system/tailwind-config#build": {
       "dependsOn": ["^build"],
       "outputs": [],
@@ -129,11 +124,6 @@
       "dependsOn": ["^build"],
       "inputs": ["$TURBO_DEFAULT$", "src/**", "lib/**", "components/**", "stories/**", ".storybook/**"],
       "outputs": ["storybook-static/**"],
-      "outputLogs": "new-only"
-    },
-    "tokens:build": {
-      "inputs": ["tokens/**", "style-dictionary.config.*"],
-      "outputs": ["dist/**", "build/**"],
       "outputLogs": "new-only"
     }
   }

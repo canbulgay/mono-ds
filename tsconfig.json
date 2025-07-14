@@ -12,14 +12,10 @@
     "paths": {
       "@design-system/core": ["./packages/core/src/index.ts"],
       "@design-system/core/*": ["./packages/core/src/*"],
-      "@design-system/themes": ["./packages/themes/src/index.ts"],
-      "@design-system/themes/*": ["./packages/themes/src/*"],
       "@design-system/utils": ["./packages/utils/src/index.ts"],
       "@design-system/utils/*": ["./packages/utils/src/*"],
       "@design-system/icons": ["./packages/icons/src/index.ts"],
-      "@design-system/icons/*": ["./packages/icons/src/*"],
-      "@design-system/tokens": ["./packages/tokens/src/index.ts"],
-      "@design-system/tokens/*": ["./packages/tokens/src/*"]
+      "@design-system/icons/*": ["./packages/icons/src/*"]
     }
   },
   "include": [],
@@ -42,16 +38,10 @@
       "path": "./packages/core"
     },
     {
-      "path": "./packages/themes"
-    },
-    {
       "path": "./packages/utils"
     },
     {
       "path": "./packages/icons"
-    },
-    {
-      "path": "./packages/tokens"
     },
     {
       "path": "./packages/tailwind-config"

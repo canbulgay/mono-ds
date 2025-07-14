@@ -16,8 +16,6 @@
   "dependencies": {
     "@design-system/core": "workspace:*",
     "@design-system/utils": "workspace:*",
-    "@design-system/themes": "workspace:*",
-    "@design-system/tokens": "workspace:*",
     "@design-system/icons": "workspace:*",
     "@design-system/tailwind-config": "workspace:*",
     "next": "^15.1.8",

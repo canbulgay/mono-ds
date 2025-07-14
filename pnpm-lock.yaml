@@ -97,12 +97,6 @@ importers:
       '@design-system/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/tailwind-config
-      '@design-system/themes':
-        specifier: workspace:*
-        version: link:../../packages/themes
-      '@design-system/tokens':
-        specifier: workspace:*
-        version: link:../../packages/tokens
       '@design-system/utils':
         specifier: workspace:*
         version: link:../../packages/utils
@@ -147,27 +141,6 @@ importers:
         specifier: ^5.8.3
         version: 5.8.3
 
-  apps/playground:
-    dependencies:
-      '@design-system/core':
-        specifier: workspace:*
-        version: link:../../packages/core
-      '@design-system/icons':
-        specifier: workspace:*
-        version: link:../../packages/icons
-      '@design-system/tailwind-config':
-        specifier: workspace:*
-        version: link:../../packages/tailwind-config
-      '@design-system/themes':
-        specifier: workspace:*
-        version: link:../../packages/themes
-      '@design-system/tokens':
-        specifier: workspace:*
-        version: link:../../packages/tokens
-      '@design-system/utils':
-        specifier: workspace:*
-        version: link:../../packages/utils
-
   apps/web:
     dependencies:
       '@design-system/core':
@@ -179,12 +152,6 @@ importers:
       '@design-system/tailwind-config':
         specifier: workspace:*
         version: link:../../packages/tailwind-config
-      '@design-system/themes':
-        specifier: workspace:*
-        version: link:../../packages/themes
-      '@design-system/tokens':
-        specifier: workspace:*
-        version: link:../../packages/tokens
       '@design-system/utils':
         specifier: workspace:*
         version: link:../../packages/utils
@@ -327,14 +294,6 @@ importers:
       tailwindcss:
         specifier: ^4.1.5
         version: 4.1.11
-
-  packages/themes:
-    dependencies:
-      '@design-system/tokens':
-        specifier: workspace:*
-        version: link:../tokens
-
-  packages/tokens: {}
 
   packages/utils:
     dependencies:
