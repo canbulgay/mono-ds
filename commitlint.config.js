@@ -68,7 +68,7 @@ export default {
     'subject-full-stop': [2, 'never', '.'],
     'subject-max-length': [2, 'always', 72],
     'body-leading-blank': [2, 'always'],
-    'body-max-line-length': [2, 'always', 100],
+    'body-max-line-length': [2, 'always', 150],
 
     // Header rules
     'header-max-length': [2, 'always', 100],
