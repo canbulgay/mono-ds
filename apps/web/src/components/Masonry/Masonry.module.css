@@ -1,0 +1,362 @@
+/**
+ * High-Performance Masonry Layout Styles
+ * 
+ * Performance Optimizations:
+ * 1. CSS Containment - Isolates layout/style/paint for better performance
+ * 2. will-change hints - Optimizes compositor layers
+ * 3. transform3d() - Forces hardware acceleration where beneficial
+ * 4. Reduced motion support - Respects user preferences
+ * 5. Container queries - Modern responsive design with media query fallbacks
+ */
+
+/* ========================================================================================
+   CONTAINER & GRID FOUNDATION
+   ======================================================================================== */
+
+.masonry-container {
+  /* Layout */
+  width: 100%;
+  max-width: 1400px;
+  padding: 0 1rem;
+  margin: 0 auto;
+
+  /* Performance Optimizations */
+  contain: layout style;
+  will-change: auto; /* Reset will-change when not animating */
+
+  /* Default CSS variables - can be overridden by component */
+  --masonry-columns: 3;
+  --masonry-gap: 24px;
+  --masonry-mobile-columns: 1;
+  --masonry-mobile-gap: 16px;
+  --masonry-tablet-columns: 2;
+  --masonry-tablet-gap: 20px;
+  --masonry-desktop-columns: 3;
+  --masonry-desktop-gap: 24px;
+  --masonry-wide-columns: 4;
+  --masonry-wide-gap: 28px;
+
+  /* Animation variables for reduced motion */
+  --transition-duration: 0.3s;
+  --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.masonry-grid {
+  /* Core Masonry Layout */
+  columns: var(--masonry-columns);
+  column-gap: var(--masonry-gap);
+  column-fill: balance;
+
+  /* Performance optimizations */
+  contain: layout style paint;
+  transform: translateZ(0); /* Force layer creation for smooth scrolling */
+}
+
+/* ========================================================================================
+   RESPONSIVE DESIGN - Modern Container Queries with Fallbacks
+   ======================================================================================== */
+
+/* Container Query Support (Modern Browsers) */
+@supports (container-type: inline-size) {
+  .masonry-container {
+    container-type: inline-size;
+  }
+
+  @container (max-width: 640px) {
+    .masonry-grid {
+      columns: var(--masonry-mobile-columns);
+      column-gap: var(--masonry-mobile-gap);
+    }
+  }
+
+  @container (min-width: 641px) and (max-width: 1023px) {
+    .masonry-grid {
+      columns: var(--masonry-tablet-columns);
+      column-gap: var(--masonry-tablet-gap);
+    }
+  }
+
+  @container (min-width: 1024px) and (max-width: 1399px) {
+    .masonry-grid {
+      columns: var(--masonry-desktop-columns);
+      column-gap: var(--masonry-desktop-gap);
+    }
+  }
+
+  @container (min-width: 1400px) {
+    .masonry-grid {
+      columns: var(--masonry-wide-columns);
+      column-gap: var(--masonry-wide-gap);
+    }
+  }
+}
+
+/* Media Query Fallbacks (All Browsers) */
+@supports not (container-type: inline-size) {
+  @media (width <= 640px) {
+    .masonry-grid {
+      columns: var(--masonry-mobile-columns);
+      column-gap: var(--masonry-mobile-gap);
+    }
+
+    .masonry-container {
+      padding: 0 0.75rem;
+    }
+  }
+
+  @media (width >= 641px) and (width <= 1023px) {
+    .masonry-grid {
+      columns: var(--masonry-tablet-columns);
+      column-gap: var(--masonry-tablet-gap);
+    }
+  }
+
+  @media (width >= 1024px) and (width <= 1399px) {
+    .masonry-grid {
+      columns: var(--masonry-desktop-columns);
+      column-gap: var(--masonry-desktop-gap);
+    }
+  }
+
+  @media (width >= 1400px) {
+    .masonry-grid {
+      columns: var(--masonry-wide-columns);
+      column-gap: var(--masonry-wide-gap);
+    }
+
+    .masonry-container {
+      padding: 0 1.5rem;
+    }
+  }
+}
+
+/* ========================================================================================
+   MASONRY ITEMS - Performance Optimized
+   ======================================================================================== */
+
+.masonry-item {
+  /* Layout */
+  display: inline-block;
+  width: 100%;
+  margin-bottom: var(--masonry-gap);
+
+  /* Performance optimizations */
+  contain: layout style;
+
+  /* Default state for progressive loading */
+  opacity: 1;
+  transform: translateY(0);
+
+  /* Smooth transitions for interactions */
+  transition:
+    transform var(--transition-duration) var(--transition-easing),
+    opacity var(--transition-duration) var(--transition-easing),
+    box-shadow var(--transition-duration) var(--transition-easing);
+
+  /* Column break prevention */
+  break-inside: avoid;
+  page-break-inside: avoid; /* IE/Legacy support */
+  -webkit-column-break-inside: avoid; /* Webkit prefix */
+}
+
+/* High-priority items (above the fold) */
+.masonry-item[data-priority='true'] {
+  contain: layout style paint; /* More aggressive containment for critical items */
+}
+
+/* ========================================================================================
+   LOADING & PLACEHOLDER STATES
+   ======================================================================================== */
+
+.loading {
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.loading.masonry-grid {
+  min-height: 50vh; /* Prevent layout shift during load */
+}
+
+.placeholder {
+  width: 100%;
+  height: 200px;
+  background: linear-gradient(
+    90deg,
+    rgb(0 0 0 / 5%) 25%,
+    rgb(0 0 0 / 10%) 50%,
+    rgb(0 0 0 / 5%) 75%
+  );
+  background-size: 200% 100%;
+  border-radius: 8px;
+  animation: shimmer 1.5s infinite ease-in-out;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Dark mode placeholder */
+@media (prefers-color-scheme: dark) {
+  .placeholder {
+    background: linear-gradient(
+      90deg,
+      rgb(255 255 255 / 5%) 25%,
+      rgb(255 255 255 / 10%) 50%,
+      rgb(255 255 255 / 5%) 75%
+    );
+    background-size: 200% 100%;
+  }
+}
+
+/* ========================================================================================
+   ACCESSIBILITY & REDUCED MOTION
+   ======================================================================================== */
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  .respect-motion,
+  .respect-motion * {
+    --transition-duration: 0s;
+
+    transform: none;
+    transition-delay: 0s;
+    transition-duration: 0s;
+    animation-duration: 0.01ms;
+    animation-iteration-count: 1;
+  }
+
+  .respect-motion .placeholder {
+    background: rgb(0 0 0 / 10%);
+    animation: none;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .respect-motion .placeholder {
+      background: rgb(255 255 255 / 10%);
+    }
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .masonry-item {
+    border: 1px solid;
+  }
+
+  .placeholder {
+    background: transparent;
+    border: 2px dashed;
+  }
+}
+
+/* Focus management for keyboard navigation */
+.masonry-item:focus-within {
+  outline: 2px solid currentcolor;
+  outline-offset: 2px;
+}
+
+/* ========================================================================================
+   PRINT STYLES
+   ======================================================================================== */
+
+@media print {
+  .masonry-grid {
+    columns: 2;
+    column-gap: 1rem;
+    break-inside: avoid;
+  }
+
+  .masonry-item {
+    margin-bottom: 1rem;
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  .placeholder {
+    display: none;
+  }
+}
+
+/* ========================================================================================
+   BROWSER-SPECIFIC OPTIMIZATIONS
+   ======================================================================================== */
+
+/* Safari-specific optimizations */
+@supports (-webkit-appearance: none) {
+  .masonry-grid {
+    transform: translateZ(0); /* Safari layer optimization */
+  }
+
+  .masonry-item {
+    perspective: 1000px;
+    backface-visibility: hidden;
+  }
+}
+
+/* Firefox-specific optimizations */
+@document url-prefix() {
+  .masonry-grid {
+    transform: translateZ(0);
+  }
+}
+
+/* IE11 fallback (graceful degradation) */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .masonry-grid {
+    display: flex;
+    flex-wrap: wrap;
+    columns: unset;
+  }
+
+  .masonry-item {
+    flex: 1 1 300px;
+    margin: 0 10px 20px;
+  }
+}
+
+/* ========================================================================================
+   UTILITIES FOR FRAMEWORK INTEGRATION
+   ======================================================================================== */
+
+/* Utility classes for common use cases */
+.masonry-1-col {
+  --masonry-columns: 1;
+}
+
+.masonry-2-col {
+  --masonry-columns: 2;
+}
+
+.masonry-3-col {
+  --masonry-columns: 3;
+}
+
+.masonry-4-col {
+  --masonry-columns: 4;
+}
+
+.masonry-5-col {
+  --masonry-columns: 5;
+}
+
+.masonry-gap-sm {
+  --masonry-gap: 12px;
+}
+
+.masonry-gap-md {
+  --masonry-gap: 24px;
+}
+
+.masonry-gap-lg {
+  --masonry-gap: 32px;
+}
+
+.masonry-gap-xl {
+  --masonry-gap: 48px;
+}

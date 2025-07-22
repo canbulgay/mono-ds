@@ -32,7 +32,7 @@ export default {
     },
     {
       // Special configuration for Tailwind CSS files
-      files: ['**/tailwind.css', '**/globals.css'],
+      files: ['**/tailwind.css', '**/globals.css', '**/theme.css'],
       rules: {
         'at-rule-no-unknown': [
           true,
@@ -45,6 +45,7 @@ export default {
               'screen',
               'layer',
               'property',
+              'theme',
             ],
           },
         ],
@@ -57,6 +58,16 @@ export default {
         'selector-class-pattern': null, // Allow utility classes
         'custom-property-pattern': null, // Allow CSS custom properties
         'declaration-no-important': null, // Tailwind uses !important
+      },
+    },
+    {
+      // Special configuration for CSS Modules
+      files: ['**/*.module.css'],
+      rules: {
+        'selector-class-pattern': null, // CSS modules generate class names
+        'declaration-no-important': null, // CSS modules may need !important for specificity
+        'media-feature-name-value-no-unknown': null, // Allow modern CSS features
+        'at-rule-prelude-no-invalid': null, // Allow browser-specific at-rules
       },
     },
   ],

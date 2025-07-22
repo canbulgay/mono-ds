@@ -75,8 +75,8 @@ export const base = {
       'line-height': [],
       // Border radius
       '/^border.*radius/': ['px', 'rem', '%'],
-      // Shadows
-      '/shadow/': ['px', 'rem'],
+      // Shadows - allow alpha values (percentages for opacity)
+      '/shadow/': ['px', 'rem', '%'],
       // Transitions and animations
       '/^(transition|animation).*duration/': ['s', 'ms'],
     },
@@ -122,6 +122,7 @@ export const base = {
           'screen',
           'layer',
           'property',
+          'theme',
         ],
       },
     ],
